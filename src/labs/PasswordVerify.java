@@ -1,4 +1,14 @@
 package labs;
+/**************************************************************
+ * 1. Read a file that contains multiple sets of passwords
+ * 2. Verify that the password contains all of the following criteria:
+ *	  1. A number
+ *	  2. A letter
+ *	  3. Special character (! @ #)
+ * 3. Create three User Defined Exceptions for the corresponding criteria.
+ * 4. If the password does not meet the criteria, create and throw the appropriate exception
+ */
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +17,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PasswordVerify {
-
+/*********************************
+ * Each one of these "contain" methods treats the password as an array and 
+ * checks each character to see if they meet the criteria
+ * @param password - Password from text file to be parsed
+ * @return
+ */
 	public static boolean containNumber(String password) {
 		boolean result = false;
 		for (char c: password.toCharArray()) {
