@@ -4,7 +4,7 @@ public class BankAccount implements Interest{
 	//Properties of a bank account
 	private static int ID = 1000;     	//Internal ID
 	private String accountNumber;		//ID + random 2-digit number + first 2 of SSN
-	private static final String routingNumber = "005400657";
+	private static final String routingNumber = "005400657";  //constant (final); belongs to the class(static)
 	private String name;
 	private String SSN;
 	private double balance;
@@ -22,15 +22,21 @@ public class BankAccount implements Interest{
 		System.out.println("Your Account Number: " + accountNumber);
 	}
 	
-	public void payBill(double amount) {
+	public void payBill(String bill, double amount) {
 		balance -= amount;
-		System.out.println("Paying bill: " + amount);
+		System.out.println("Paying " + bill + " bill: " + amount);
 		showBalance();
 	}
 
 	public void makeDeposit(double amount) {
 		balance += amount;
 		System.out.println("Making deposit: " + amount);
+		showBalance();
+	}
+	
+	void withdraw(double amount) {
+		balance -= amount;
+		System.out.println("Making withdraw: " + amount);
 		showBalance();
 	}
 	
@@ -52,6 +58,6 @@ public class BankAccount implements Interest{
 	
 	public String toString() {
 		return "[Name: " + name + "]\n[Account Number: " + accountNumber 
-				+ "]\n[Routing Number: " + routingNumber + "]\n[Balance: " + balance + "]";
+				+ "]\n[Routing Number: " + routingNumber + "]\n[Balance: " + balance + "]\n";
 	}
 }
